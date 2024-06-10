@@ -7,12 +7,12 @@ The following **diagram** describes the workflow in which the scripts are organi
 ```mermaid
 flowchart TD
     A[[Download data from GBIF]] --> |DownloadGBIF_data.R|BB[[Processing records]]
-    BB --> |OCCUR_DataCuration.R|C[(Database *see Figshare repository)]
+    BB --> |OCCUR_DataCuration.R|C[(Database <br> *see Figshare repository)]
     AA[[Create Global Climatic Space]] --> |EnvSpace1.R|CC{Climatic Spaces of Orders}
     C --> CC[[Climatic Spaces of Orders and species]]
-    C --> D[[Assign Köopen-Geiger Class]]
+    C --> D[[Assign Köppen-Geiger Class]]
     D --> |Script_Koppen.R| E(Visualisations)
-    CC --> |EnvSpace2.R|E>OUTPUTS *see Figshare repository]
+    CC --> |EnvSpace2.R|E>OUTPUTS <br> *see Figshare repository]
     E --> |Figures.R|F(Visualisations)
 
   style A fill:dodgerblue, stroke:#333,stroke-width:2px,color:#fff;
