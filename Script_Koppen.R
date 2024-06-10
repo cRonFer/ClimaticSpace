@@ -28,7 +28,7 @@ df <- data.frame(sp = character(),
 
 setwd(file.path(mainDir))
 # Load Koppen raster #### 
-kop_shp <- raster("envVariables/kopen1kmMaskWorld.tif")
+kop_shp <- raster("kopen1kmMaskWorld.tif")
 # plot(kop_shp)
 # Reclassification as main classes 
 Tropical <- c('X1','X2','X4')
@@ -46,18 +46,18 @@ setDT(wcvp_names)
 powo <- rWCVPdata::wcvp_distributions
 setDT(powo)
 # Powo botanical countries shapefile
-powo_countries <- read_sf(paste0(mainDir,'wcvp/level3_wcvp.shp'))
+powo_countries <- read_sf(paste0(mainDir,'level3_wcvp.shp'))
 # Set the correct projection for shp
 st_crs(powo_countries) <- CRS
 # Extract only field of code for botanical countries
 powo_countries <- powo_countries %>% dplyr::select(LEVEL3_COD)
 
 # Load species records by order and extract Köppen-Geiger class from points ####
-setwd(file.path(mainDir,'/data/shortDTn'))
+setwd(file.path(mainDir,'')) # Load dataTable obtained in OCCUR_DaraCuration.R from Figshare repo
 orders <- list.files(pattern = "")
 x =  2 # to iterate rows inside loop
 for(name in orders){
-  outp <- read.csv(paste0(mainDir,'OutputAnalysisKOP.csv'), header = TRUE, sep = ";")
+  outp <- read.csv(paste0(mainDir,'Templates/OutputAnalysisKOP.csv'), header = TRUE, sep = ";")
   # Download Records
   outp[1,1] <- name
   data <- readRDS(name) # Reduced to min fields (species name, lat, lon)
@@ -124,7 +124,7 @@ fwrite(all, paste0(name,'_kop.csv'), sep = ";")
 
 x =  2 # to iterate rows inside loop
 for(name in orders){
-  outp <- read.csv(paste0(mainDir,'OutputAnalysisKOP.csv'), header = TRUE, sep = ";")
+  outp <- read.csv(paste0(mainDir,'Templates/OutputAnalysisKOP.csv'), header = TRUE, sep = ";")
   spp1 <- native_a %>% filter(DT == name)
   data <- readRDS(name) 
   spList <- unique(spp1$sp)
