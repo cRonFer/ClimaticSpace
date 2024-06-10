@@ -1,5 +1,5 @@
 ###========================================================### 
-###            Environmental space analyses 1              ###
+###         Environmental space analyses Part 1            ###
 ###              By Cristina Ronquillo 2024                ###
 ### Calculates PCA and create env. space of the study area ### 
 ###========================================================### 
@@ -96,7 +96,7 @@ nCellTotal <- length(area_values[!is.na(area_values)])
 values(env_space_area) <- area_values
 stack <- env_space_area
 
-# Save the following objects for 'EnvSpace2' script ####
+# Save the following objects for 'EnvSpace2' script in 'output_EnvPart1' folder ####
 saveRDS(v4,'v4')
 saveRDS(env_space_area,'env_space_area')
 saveRDS(env_space,'env_space')
