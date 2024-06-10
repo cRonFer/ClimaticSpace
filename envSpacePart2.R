@@ -59,12 +59,12 @@ st_crs(powo_countries) <- CRS
 # Extract only field of code for botanical countries
 powo_countries <- powo_countries %>% dplyr::select(LEVEL3_COD)
 # Species info ####
-setwd(file.path(mainDir,'/data'))
+setwd(file.path(mainDir,'/data')) # data from 'OCCUR_DataCuration' script (Download from Figshare)
 rlist <- list.files(pattern = "")
 # Loop to calculate env. space by order and species ####
 for(name in rlist){
-    stack <- readRDS(paste0(mainDir,'/envVariables/env_space_area'))
-    outp <- read.csv('OutputAnalysis.csv', header = TRUE, sep = ";")
+    stack <- readRDS(paste0(mainDir,'/output_EnvPart1/env_space_area'))
+    outp <- read.csv('Templates/OutputAnalysis.csv', header = TRUE, sep = ";")
     outp[1,1] <- name # Order
     data <- readRDS(name) # Reduced to 3 fields (species name code wcvp_accepted_id, latitude, longitude)
     spList <- unique(data$wcvp_accepted_id)
