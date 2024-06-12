@@ -12,7 +12,7 @@ flowchart TD
     C --> CC[[Climatic Spaces of Orders and species]]
     C --> D[[Assign Köppen-Geiger Class]]
     D --> |Script_Koppen.R| E(Visualisations)
-    CC --> |EnvSpace2.R|E>OUTPUTS <br> *see Figshare repository <br> 'outputsEnvSpace_x02.xlsx' <br> 'outputsEnvSpace_x02.xlsx' <br> 'koppenClasses.csv']
+    CC --> |EnvSpace2.R|E>OUTPUTS <br> *see Figshare repository <br> 'outputsEnvSpace_x02.xlsx' <br> 'outputsEnvSpace_x05.xlsx' <br> 'koppenClasses.csv']
     E --> |Figures.R|F(Visualisations)
 
   style A fill:dodgerblue, stroke:#333,stroke-width:2px,color:#fff;
